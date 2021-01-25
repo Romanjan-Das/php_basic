@@ -1,3 +1,12 @@
+<?php
+$cookie_name = "eci_user";
+if(isset($_COOKIE[$cookie_name])){
+    header('Location: ' . $_SERVER['HTTP_REFERER']);
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,7 +40,7 @@
         <input type="text" name="mail_address" id="mail_address" placeholder="xyz@example.com" required><br><br>
         <label for="address">Enter your address</label><br>
         <input type="text" name="address" id="address" placeholder="address" required>
-        <input type="text" name="url_address" id="url_address" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
+        <input style="display: none;" type="text" name="url_address" id="url_address" value="<?php echo $_SERVER['HTTP_REFERER']; ?>">
         <br><br>
         <input type="submit" value="Submit">
     </form>

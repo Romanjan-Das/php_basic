@@ -18,6 +18,10 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     fwrite($file2,$reg_form_data);
     fclose($file2);
 
+    $cookie_name = "eci_user";
+    $cookie_value = "eci_user_data";
+    setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
     header('Location: ' . $_POST["url_address"]);
 }
 
